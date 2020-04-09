@@ -1,0 +1,62 @@
+:root {
+    --dark_blue: #15202b; /*rgb(21, 32, 43)*/
+    --hover_blue: #152c3f; /*rgb(21, 44, 63)*/
+    --chatroom_blue: #192734; /*rgb(25, 39, 52)*/
+    --border_blue: #1e2c38; /*rgb(30, 44, 56)*/
+    --twitter_blue: #1da1f2; /*rgb(29, 161, 242)*/
+    --gray_blue: #3d4566; /*rgb(61, 84, 102)*/
+    --light_blue: #9be;
+    --white_blue: #f6fcff;
+    --graySearch: #555555;
+    --grayUesrName: #333333;
+}
+/*///////////// scrollbar //////////////*/
+/* width */
+::-webkit-scrollbar {
+    width: 3px;
+    z-index: 1;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px var(--gray_blue);
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--twitter_blue);
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--twitter_blue); 
+  }
+/*///////////////////////////////// main menu /////////*/
+html, body {
+    background-image: url("../grey.png");
+    height: 98%;
+}
+#main_menu {
+    margin: 20px 3% 0px 3%;
+    height: 100%;
+}
+#container {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    height: 100%;
+}
+#user_block {
+    background-color: var(--dark_blue);
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    z-index: 0;
+}
+#chat_room {
+    background-color: var(--chatroom_blue);
+    display: flex;
+    flex-direction: column-reverse;
+    overflow-y: hidden;
+    z-index: 0;
+}

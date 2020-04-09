@@ -1,0 +1,105 @@
+/*///////////////////////////////// chat room /////////*/
+/*////////// message_board //////////*/
+#message_board {
+    padding: 8px 15px 25px 15px;
+    border-radius: 0px;
+}
+#message_form {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    grid-template-rows: 52px;
+    transition-duration: 200ms;
+}
+#message_form input {
+    background-color: white;
+    color: var(--chatroom_blue);
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 300;
+    box-shadow: 0px 1px 5px #0d141b;
+    outline: none;
+    border-radius: 50px;
+    border-width: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 10px;
+}
+#send_icon {
+    display: none;
+}
+/*/// chatroom_trash */
+#chatroom_trash {
+    display: inline;
+    background-color: white;
+    border-radius: 30px;
+    padding: 0px 10px;
+    box-shadow: 0px 1px 5px #0d141b;
+    color: #ff4444;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+#chatroom_trash:hover {
+    background-color: #ff4444;
+    color: white;
+}
+#chatroom_trash_btn_delete_text {
+    display: none;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 200;
+    margin-right: 10px;
+    transition-duration: 20ms;
+    transition-delay: 100ms;
+}
+/*////////// text_area //////////*/
+#text_area {
+    margin: 0px;
+    display: grid;
+    overflow-y: scroll;
+}
+.message {
+    font-size: 19px;
+    border-width: 0px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    display: grid;
+    grid-template-rows: 1fr 25px;
+    max-width: max-content;
+}
+.me {
+    color: var(--dark_blue);
+    background-color: var(--twitter_blue);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    justify-self: right;
+    padding: 15px 25px 0px 20px;
+    margin-right: 7px;
+    margin-left: 20%;
+}
+.she{
+    color: white;
+    background-color: var(--gray_blue);
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    padding: 15px 20px 0px 25px;
+    margin-right: 20%;
+    margin-left: 10px;
+}
+/*////////// message_time //////////*/
+.message_time {
+    margin-bottom: 5px;
+    font-size: 11px;
+    font-weight: 100;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    align-self: flex-end;
+}
+.me .message_time {
+    color: white;
+    justify-self: right;
+    padding-left: 10px;
+}
+.she .message_time {
+    color: var(--twitter_blue);
+    padding-right: 10px;
+}
