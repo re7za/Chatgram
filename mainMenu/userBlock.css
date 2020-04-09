@@ -9,6 +9,12 @@
     align-items: stretch;
     justify-items: stretch;
     border-right: 3px solid #0b80d0;
+
+    /*disable the icon and text*/
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
 }
 #search_bar {
     background-color: white;

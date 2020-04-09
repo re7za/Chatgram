@@ -5,6 +5,12 @@ var chatroom_trash_icon = document.getElementById('chatroom_trash_icon');
 var chatroom_trash_btn = document.getElementById('chatroom_trash');
 var chatroom_trash_btn_delete_text = document.getElementById('chatroom_trash_btn_delete_text');
 
+//////////// text area variables
+var text_area = document.getElementById('text_area');
+// set the default position of scroll bar to bottom of text_area div
+text_area.scrollTop = text_area.scrollHeight;
+
+
 var is_chatroom_trash_btn_active = false;
 
 var messageInput_onfocus = () => {

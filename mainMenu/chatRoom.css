@@ -3,6 +3,12 @@
 #message_board {
     padding: 8px 15px 25px 15px;
     border-radius: 0px;
+
+    /*disable the icon and text*/
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
 }
 #message_form {
     display: grid;
