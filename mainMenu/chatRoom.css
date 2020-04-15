@@ -13,10 +13,10 @@
 #message_form {
     display: grid;
     grid-template-columns: 52px 1fr;
-    grid-template-rows: 52px;
-    transition-duration: 200ms;
+    grid-template-rows: 1fr;
+    align-items: flex-start;
 }
-#message_form input {
+#message_form textarea {
     background-color: white;
     color: var(--chatroom_blue);
     font-size: 20px;
@@ -24,11 +24,13 @@
     font-weight: 300;
     box-shadow: 0px 1px 5px #0d141b;
     outline: none;
-    border-radius: 50px;
+    border-radius: 30px;
     border-width: 0px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 15px 20px 14px;
     margin-left: 10px;
+}
+textarea::-webkit-scrollbar {
+    width: 0px;
 }
 #send_icon {
     display: none;
@@ -38,7 +40,7 @@
     display: inline;
     background-color: white;
     border-radius: 30px;
-    padding: 0px 10px;
+    padding: 10px 10px;
     box-shadow: 0px 1px 5px #0d141b;
     color: #ff4444;
     display: grid;
@@ -54,9 +56,8 @@
     font-size: 20px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 200;
-    margin-right: 10px;
-    transition-duration: 20ms;
-    transition-delay: 100ms;
+    margin-right: 5px;
+    padding: 5px;
 }
 /*////////// text_area //////////*/
 #text_area {
@@ -109,3 +110,12 @@
     color: var(--twitter_blue);
     padding-right: 10px;
 }
+
+
+
+/*////////////////////// مشکلات تخماتیک */
+/* اگه ی پیام بدون اسپیس طول زیادی داشته باشه عرض تصویر بیش از حد زیاد میشه
+ دکمه اینتر نیولاین درست نمیکنه
+ ترنزیشن نداریم.. احتمالا بخاطر سایز ستون گریدهاس 
+ 
+ */

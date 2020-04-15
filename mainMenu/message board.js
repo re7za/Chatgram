@@ -10,7 +10,6 @@ var text_area = document.getElementById('text_area');
 // set the default position of scroll bar to bottom of text_area div
 text_area.scrollTop = text_area.scrollHeight;
 
-
 var is_chatroom_trash_btn_active = false;
 
 var messageInput_onfocus = () => {
@@ -27,23 +26,11 @@ var messageInput_onfocus = () => {
         // value checking
         if (e.target.value == ""){
             // hide the send_icon
-            send_icon.style.display = 'none';
-            chatroom_trash_btn.style.display = 'grid';
-            message_input.style.marginRight = "0px";
-            message_input.style.marginLeft = "10px";
-            message_form.style.transition = '0ms';
-            message_form.style.gridTemplateColumns = "53px 1fr";
-
-            // set direction to 'ltr' by default
-            message_input.style.direction = 'ltr';
+            deActiveTheSendIcon();
         }else {
+
             // show the send_icon
-            chatroom_trash_btn.style.display = 'none';
-            message_form.style.transition = '0ms';
-            message_input.style.marginRight = '10px';
-            message_input.style.marginLeft = '0px';
-            message_form.style.gridTemplateColumns = '1fr 52px';
-            send_icon.style.display = 'inline';
+            activeTheSendIcon();
 
             // 'rtl' or 'ltr'.. checking the first letter
             val = e.target.value;
@@ -57,7 +44,27 @@ var messageInput_onfocus = () => {
         }
     }
 }
+var deActiveTheSendIcon = () => {
 
+    send_icon.style.display = 'none';
+    chatroom_trash_btn.style.display = 'grid';
+    message_input.style.marginRight = "0px";
+    message_input.style.marginLeft = "10px";
+    message_form.style.transition = '0ms';
+    message_form.style.gridTemplateColumns = "53px 1fr";
+
+    // set direction to 'ltr' by default
+    message_input.style.direction = 'ltr';
+}
+var activeTheSendIcon = () => {
+
+    chatroom_trash_btn.style.display = 'none';
+    message_form.style.transition = '0ms';
+    message_input.style.marginRight = '10px';
+    message_input.style.marginLeft = '0px';
+    message_form.style.gridTemplateColumns = '1fr 52px';
+    send_icon.style.display = 'inline';
+}
 // false with 'en'
 function isRTL(s){           
     var ltrChars    = 'A-Za-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02B8\u0300-\u0590\u0800-\u1FFF'+'\u2C00-\uFB1C\uFDFE-\uFE6F\uFEFD-\uFFFF',
@@ -91,7 +98,6 @@ var chatroom_trash_onclick = () => {
 var activeTheMessageTrash = () => {
 
     chatroom_trash_icon.style.display = 'none';
-    message_form.style.transitionDuration = '200ms';
     message_form.style.gridTemplateColumns = '30% 1fr';
     
     // create the texts
@@ -110,4 +116,32 @@ var deActiveTheMessageTrash = () => {
     chatroom_trash_btn_delete_text.style.display = 'none';
     chatroom_trash_btn_delete_text.innerHTML = '';
     message_input.value = '';
+}
+
+///////////// sending and receiving messages
+
+var addMessageToChatroom = (text, sender) => {
+    // create the message div
+    let message = `<div class="message ${sender}">`;
+    message += `<div class="message_text">${text}</div>`;
+    message += `<div class="message_time">12:35</div>`;
+    message += `</div>`;
+
+    // add it to chatroom by DOM
+    text_area.innerHTML += message;
+
+    // set the default position of scroll bar to bottom of text_area div
+    text_area.scrollTop = text_area.scrollHeight;
+    
+}
+
+// i'm sending message
+var sendIcon_onclick = () => {
+
+    text = message_input.value;
+    if (text != ''){
+        addMessageToChatroom(text, 'me');
+    }
+    message_input.value = '';
+    deActiveTheSendIcon();
 }

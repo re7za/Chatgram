@@ -6,7 +6,7 @@
     --twitter_blue: #1da1f2; /*rgb(29, 161, 242)*/
     --gray_blue: #3d4566; /*rgb(61, 84, 102)*/
     --light_blue: #9be;
-    --white_blue: #f6fcff;
+    --white_blue: #dcf3ff;
     --graySearch: #555555;
     --grayUesrName: #333333;
 }
@@ -42,7 +42,7 @@ html, body {
 }
 #container {
     display: grid;
-    grid-template-columns: 30% 70%;
+    grid-template-columns: 50% 50%;
     height: 100%;
 }
 #user_block {
@@ -60,3 +60,12 @@ html, body {
     overflow-y: hidden;
     z-index: 0;
 }
+@media (max-width: 860px) {
+  #container {
+    grid-template-columns: 1fr;
+  }
+  #user_block {
+    display: none;
+  }
+}
+

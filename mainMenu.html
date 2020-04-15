@@ -13,61 +13,33 @@
         <div id="container">
             <div id="user_block">
                 <div id="users_toolbar">
-                    <form id="search_bar">
+                    <form id="search_bar" onsubmit="return false;">
                         <img id="search_icon" src="icon/search.png" alt="search icon" onclick="searchIcon_onclick()">
                         <input id="search_input" type="search" autocomplete="off" value="" placeholder="search" onfocus="searchInput_onfocus()">
-                    </form>    
-                    <div id="users_trash" onclick="users_trash_onclick()">
-                        <div id="user_trash_btn_delete_text""></div>
-                        <img id="user_trash_icon" src="icon/trash.png" alt="trash icon">
+                    </form> 
+                    <div id="add_contact" onclick="add_contact_onclick()">
+                        <img id="add_contact_icon" src="icon/add_contact.png" alt="add icon">
                     </div>           
                 </div>
+                <form id="add_contact_panel" onsubmit="return false;">
+                    <div class="cancel_ok_btns">
+                        <button class="user_cancel_btn" type="button">cancel</button>
+                        <button id="add_contact_btn" type="button">add</button>
+                    </div>
+                    <input type="text" class="name_input" autocomplete="off" value="" placeholder="name">
+                </form>
                 <div id="user_list">
                     <div class="user"><div class="user_name">ali najafi</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">mmmd sajadi</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">ramin khonsari</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">hossein ghaemi</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">behrooz vesoghi</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">ali najafi</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">mmmd sajadi</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">ramin khonsari</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">hossein ghaemi</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">behrooz vesoghi</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">ali najafi</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">mmmd sajadi</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">ramin khonsari</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">hossein ghaemi</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">behrooz vesoghi</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">ali najafi</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">mmmd sajadi</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">ramin khonsari</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">hossein ghaemi</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">behrooz vesoghi</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">ali najafi</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">mmmd sajadi</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">ramin khonsari</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">hossein ghaemi</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">behrooz vesoghi</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">ali najafi</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">mmmd sajadi</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">ramin khonsari</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">hossein ghaemi</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">behrooz vesoghi</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">ali najafi</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">mmmd sajadi</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">ramin khonsari</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">hossein ghaemi</div><div class="user_last_message">13:45</div></div>
-                    <div class="user"><div class="user_name">behrooz vesoghi</div><div class="user_last_message">13:45</div></div>
                 </div>
             </div>
             <div id="chat_room">
                 <div id="message_board">
-                    <form action="" id="message_form">
+                    <form action="" id="message_form" onsubmit="form_on_Enter_key()">
                         <div id="chatroom_trash" onclick="chatroom_trash_onclick()">
                             <img id="chatroom_trash_icon" src="icon/trash.png" alt="trash icon" class="trash_icon">
                             <div id="chatroom_trash_btn_delete_text""></div>
                         </div>
-                        <input type="text" id="message_input" value="" autocomplete="off" placeholder="Type a message" onfocus="messageInput_onfocus()">
+                        <textarea id="message_input" name="message" rows='1'value="" autocomplete="off" placeholder="Type a message" onfocus="messageInput_onfocus()"></textarea>
                         <img id="send_icon" src="icon/send.png" alt="send button" onclick="sendIcon_onclick()">
                     </form>
                 </div>
@@ -97,7 +69,7 @@
                         <div class="message_time">12:35</div>
                     </div>
                     <div class="message she">
-                        <div class="message_text">h<there class=""></there></div>
+                        <div class="message_text">h</div>
                         <div class="message_time">12:40</div>
                     </div>
                     <div class="message me">
@@ -105,7 +77,7 @@
                         <div class="message_time">12:35</div>
                     </div>
                     <div class="message she">
-                        <div class="message_text">h<there class=""></there></div>
+                        <div class="message_text">h</div>
                         <div class="message_time">12:40</div>
                     </div>
                     <div class="message me">
@@ -113,7 +85,7 @@
                         <div class="message_time">12:35</div>
                     </div>
                     <div class="message she">
-                        <div class="message_text">h<there class=""></there></div>
+                        <div class="message_text">h</div>
                         <div class="message_time">12:40</div>
                     </div>
                 </div>
