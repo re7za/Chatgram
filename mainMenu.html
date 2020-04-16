@@ -19,18 +19,16 @@
                     </form> 
                     <div id="add_contact" onclick="add_contact_onclick()">
                         <img id="add_contact_icon" src="icon/add_contact.png" alt="add icon">
-                    </div>           
+                    </div>     
                 </div>
                 <form id="add_contact_panel" onsubmit="return false;">
                     <div class="cancel_ok_btns">
                         <button class="user_cancel_btn" type="button">cancel</button>
-                        <button id="add_contact_btn" type="button">add</button>
+                        <button id="add_contact_btn" type="button" onclick="add_contact_btn_onclick()">add</button>
                     </div>
-                    <input type="text" class="name_input" autocomplete="off" value="" placeholder="name">
+                    <input type="text" id="add_contact_name_input" class="add_contact_input" autocomplete="off" value="" placeholder="name" onfocus="addContactInput_name_onfocus()">
                 </form>
-                <div id="user_list">
-                    <div class="user"><div class="user_name">ali najafi</div><div class="user_last_message">13:45</div></div>
-                </div>
+                <div id="user_list"></div>
             </div>
             <div id="chat_room">
                 <div id="message_board">
