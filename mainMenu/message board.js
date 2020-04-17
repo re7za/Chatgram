@@ -85,7 +85,7 @@ var sendIcon_onclick = () => {
 
         // time
         let this_moment = new Date();
-
+    
         // print it in chatroom
         addMessageToChatroom('me', text, this_moment);
 
@@ -97,9 +97,7 @@ var sendIcon_onclick = () => {
                 break;
             }
         }
-
         refresh_contacts_list();
-
         message_input.value = '';
         deActiveTheSendIcon();
     }

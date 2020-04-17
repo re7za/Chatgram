@@ -5,27 +5,23 @@ class Contact {
         this.messages = [];
     }
     update_last_PM() {
-        
         this.last_PM_time = new Date();
-        this.lastPM_time_str = get_time_str(this.last_PM_time);
     }
     get Last_PM_time() {
         return this.last_PM_time;
-    }
-    get Last_PM_time_str(){
-        return this.lastPM_time_str;
     }
     get Name() {
         return this.name;
     }
     make_tag() {
-        this.tag = `<div class="user" onclick="contact_onclick('${this.name}')"><div class="user_name">${this.name}</div><div class="user_last_message">${this.lastPM_time_str}</div></div>`;
+        this.tag = `<div class="user" onclick="contact_onclick('${this.name}')"><div class="user_name">${this.name}</div><div class="user_last_message">${get_time_str(this.last_PM_time)}</div></div>`;
     }
     get Tag() {
         return this.tag;
     }
     put_contact_to_user_list(){
-        user_list.innerHTML += this.tag;
+        let list = user_list.innerHTML;
+        user_list.innerHTML = (this.tag).concat(list);
     }
     get Messages(){
         return this.messages;
@@ -36,8 +32,9 @@ class Contact {
             'text' : text,
             'time' : time
         };
-
+        
         this.messages.push(message);
+        this.last_PM_time = time;
     }
     load_messages(){
         
@@ -200,7 +197,10 @@ var add_contact_btn_onclick = () => {
         contacts.push(new_contact);
 
         // push_back the contacts list
-        refresh_contacts_list();
+        //refresh_contacts_list();
+
+        contacts[contacts.length - 1].make_tag();
+        contacts[contacts.length - 1].put_contact_to_user_list();
     }else {
         return;
     }
@@ -214,7 +214,7 @@ var add_contact_btn_onclick = () => {
 var refresh_contacts_list = () => {
     
     sort_contacts_by_last_PM();
-    
+
     user_list.innerHTML = '';
     
     for (contact of contacts){
@@ -226,11 +226,14 @@ var sort_contacts_by_last_PM = () => {
     
     for (let i = 0; i < contacts.length; i++){
         for (let j = i; j < contacts.length; j++){
-            if (contacts[i].last_PM_time.getTime() < contacts[j].last_PM_time.getTime()){
+            let time_c_i = contacts[i].Last_PM_time.getTime();
+            let time_c_j = contacts[j].Last_PM_time.getTime();
+            if (time_c_i > time_c_j){
                 [contacts[i], contacts[j]] = [contacts[j], contacts[i]];
             }
         }
     }
+    console.log(contacts)
 }
 var contact_onclick = (contact_name) => {
     
