@@ -2,36 +2,24 @@ class Contact {
     constructor(name) {
         this.name = name;
         this.Last_PM_time;
-
-        
+        this.messages = [];
     }
     update_last_PM() {
         
-        let form_it = (p) => {
-            if (p < 10){
-                return '0' + p;
-            }else {
-                return p;
-            }
-        }
         this.last_PM_time = new Date();
-        let year = form_it(this.last_PM_time.getFullYear());
-        let month = form_it(this.last_PM_time.getMonth());
-        let date = form_it(this.last_PM_time.getDate());
-        let hour = form_it(this.last_PM_time.getHours());
-        let min = form_it(this.last_PM_time.getMinutes());
-        let date_str = `${year}/${month}/${date}`;
-        let time_str = `${hour}:${min}`;
-        this.lastPM_time_str = date_str + ' > ' + time_str;
+        this.lastPM_time_str = get_time_str(this.last_PM_time);
     }
     get Last_PM_time() {
         return this.last_PM_time;
+    }
+    get Last_PM_time_str(){
+        return this.lastPM_time_str;
     }
     get Name() {
         return this.name;
     }
     make_tag() {
-        this.tag = `<div class="user"><div class="user_name">${this.name}</div><div class="user_last_message">${this.lastPM_time_str}</div></div>`;
+        this.tag = `<div class="user" onclick="contact_onclick('${this.name}')"><div class="user_name">${this.name}</div><div class="user_last_message">${this.lastPM_time_str}</div></div>`;
     }
     get Tag() {
         return this.tag;
@@ -39,7 +27,45 @@ class Contact {
     put_contact_to_user_list(){
         user_list.innerHTML += this.tag;
     }
+    get Messages(){
+        return this.messages;
+    }
+    message_pushBack(sender, text, time){
+        let message = {
+            'sender' : sender,
+            'text' : text,
+            'time' : time
+        };
 
+        this.messages.push(message);
+    }
+    load_messages(){
+        
+        for (let i = 0; i < this.messages.length; i++){
+
+            addMessageToChatroom(this.messages[i].sender, this.messages[i].text, this.messages[i].time);
+        }
+    }
+
+}
+// fix time format
+var fix_0_in_time = (p) => {
+    if (p < 10){
+        return '0' + p;
+    }else {
+        return p;
+    }
+}
+var get_time_str = (time) => {
+
+    let year = fix_0_in_time(time.getFullYear());
+    let month = fix_0_in_time(time.getMonth());
+    let date = fix_0_in_time(time.getDate());
+    let hour = fix_0_in_time(time.getHours());
+    let min = fix_0_in_time(time.getMinutes());
+    let date_str = `${year}/${month}/${date}`;
+    let time_str = `${hour}:${min}`;
+    return date_str + ' > ' + time_str;
 }
 
 var search_icon = document.getElementById("search_icon");
@@ -49,7 +75,6 @@ var search_input = document.getElementById("search_input");
 var search_bar = document.getElementById('search_bar');
 var add_contact_btn = document.getElementById('add_contact');
 var add_contact_panel = document.getElementById('add_contact_panel');
-
 
 var searchIcon_onclick = () => {
 
@@ -129,6 +154,7 @@ var searchInput_onfocus = () => {
 
 ////////////////////////////// add contact
 var contacts = [];
+var current_contact_index;
 
 var add_contact_name_input = document.getElementById('add_contact_name_input');
 
@@ -191,9 +217,9 @@ var refresh_contacts_list = () => {
     
     user_list.innerHTML = '';
     
-    for (let i = 0; i < contacts.length; i++){
-        contacts[i].make_tag();
-        contacts[i].put_contact_to_user_list();
+    for (contact of contacts){
+        contact.make_tag();
+        contact.put_contact_to_user_list();
     }
 }
 var sort_contacts_by_last_PM = () => {
@@ -206,6 +232,17 @@ var sort_contacts_by_last_PM = () => {
         }
     }
 }
-
+var contact_onclick = (contact_name) => {
+    
+    for (let i = 0; i < contacts.length; i++){
+        if (contacts[i].Name == contact_name){  
+            
+            text_area.innerHTML = '';
+            current_contact_index = i;
+            contacts[i].load_messages();
+            break;
+        }
+    }
+}
 
 

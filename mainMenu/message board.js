@@ -62,11 +62,12 @@ function isRTL(s){
 
 ///////////// sending and receiving messages
 
-var addMessageToChatroom = (text, sender) => {
+var addMessageToChatroom = (sender, text, time) => {
+
     // create the message div
     let message = `<div class="message ${sender}">`;
     message += `<div class="message_text">${text}</div>`;
-    message += `<div class="message_time">12:35</div>`;
+    message += `<div class="message_time">${get_time_str(time)}</div>`;
     message += `</div>`;
 
     // add it to chatroom by DOM
@@ -74,7 +75,6 @@ var addMessageToChatroom = (text, sender) => {
 
     // set the default position of scroll bar to bottom of text_area div
     text_area.scrollTop = text_area.scrollHeight;
-    
 }
 
 // i'm sending message
@@ -82,8 +82,29 @@ var sendIcon_onclick = () => {
 
     text = message_input.value;
     if (text != ''){
-        addMessageToChatroom(text, 'me');
+
+        // time
+        let this_moment = new Date();
+
+        // print it in chatroom
+        addMessageToChatroom('me', text, this_moment);
+
+        // save it in contact.messages array
+        for (let i = 0; i < contacts.length; i++){
+            if (i == current_contact_index){
+
+                contacts[i].message_pushBack('me', text, this_moment);
+                break;
+            }
+        }
+
+        refresh_contacts_list();
+
+        message_input.value = '';
+        deActiveTheSendIcon();
     }
-    message_input.value = '';
-    deActiveTheSendIcon();
 }
+
+// باید بر اساس زمان اخرین پیام لیست مخاطبین رفرش شه
+// باید مخاطبی ک روش کلیک میشه رنگش عوض شه مث زمان هاور
+// باید مخاطبی ک روش کلیک میشه اسمش رو اون بالا بنویسیم
