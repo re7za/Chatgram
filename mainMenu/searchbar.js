@@ -72,6 +72,7 @@ var search_input = document.getElementById("search_input");
 var search_bar = document.getElementById('search_bar');
 var add_contact_btn = document.getElementById('add_contact');
 var add_contact_panel = document.getElementById('add_contact_panel');
+var chatroom_header_text = document.getElementById('chatroom_header_text');
 
 var searchIcon_onclick = () => {
 
@@ -196,9 +197,6 @@ var add_contact_btn_onclick = () => {
         new_contact.update_last_PM();
         contacts.push(new_contact);
 
-        // push_back the contacts list
-        //refresh_contacts_list();
-
         contacts[contacts.length - 1].make_tag();
         contacts[contacts.length - 1].put_contact_to_user_list();
     }else {
@@ -233,16 +231,17 @@ var sort_contacts_by_last_PM = () => {
             }
         }
     }
-    console.log(contacts)
 }
 var contact_onclick = (contact_name) => {
     
     for (let i = 0; i < contacts.length; i++){
         if (contacts[i].Name == contact_name){  
             
+            chatroom_header_text.innerHTML = contact_name;
             text_area.innerHTML = '';
             current_contact_index = i;
             contacts[i].load_messages();
+
             break;
         }
     }

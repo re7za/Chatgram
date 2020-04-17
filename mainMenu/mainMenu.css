@@ -34,7 +34,7 @@
   }
 /*///////////////////////////////// main menu /////////*/
 html, body {
-    background-image: url("../grey.png");
+    background-image: url("../background.png");
     height: 98%;
 }
 #main_menu {
@@ -43,7 +43,7 @@ html, body {
 }
 #container {
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 30% 70%;
     height: 100%;
 }
 #user_block {
@@ -56,9 +56,9 @@ html, body {
 }
 #chat_room {
     background-color: var(--chatroom_blue);
-    display: flex;
-    flex-direction: column-reverse;
-    overflow-y: hidden;
+    display: grid;
+    grid-template-rows: 61px 1fr 90px;
+    overflow: hidden;
     z-index: 0;
 }
 @media (max-width: 860px) {

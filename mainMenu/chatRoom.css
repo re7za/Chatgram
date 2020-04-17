@@ -3,7 +3,6 @@
 #message_board {
     padding: 12px 15px 25px 15px;
     border-radius: 0px;
-
     /*disable the icon and text*/
     -webkit-user-select: none; /* Safari */        
     -moz-user-select: none; /* Firefox */
@@ -35,6 +34,11 @@ textarea::-webkit-scrollbar {
     display: none;
 }
 /*////////// text_area //////////*/
+#text_area_container {
+    display: flex;
+    flex-direction: column-reverse;
+    overflow-y: hidden;
+}
 #text_area {
     margin: 0px;
     display: grid;
@@ -85,9 +89,28 @@ textarea::-webkit-scrollbar {
     color: var(--twitter_blue);
     padding-right: 10px;
 }
+/*////////// header //////////*/
+#chatroom_header {
+    z-index: 1;
+    background-color: var(--twitter_blue);
+    min-height: 61px;
+    box-shadow: 0px 5px 10px var(--dark_blue);
+    
+    display: grid;
+    justify-items: center;
+    align-items: center;
 
-
-
+    /*disable the icon and text*/
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+#chatroom_header_text {
+    color: white;
+    font-size: 25px;
+    text-shadow: 0px 3px 5px #1a4586;
+}
 /*////////////////////// مشکلات تخماتیک */
 /* اگه ی پیام بدون اسپیس طول زیادی داشته باشه عرض تصویر بیش از حد زیاد میشه
  دکمه اینتر نیولاین درست نمیکنه
