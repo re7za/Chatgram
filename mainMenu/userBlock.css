@@ -9,6 +9,7 @@
     align-items: stretch;
     justify-items: stretch;
     border-right: 3px solid #0b80d0;
+    max-width: 100%;
 
     /*disable the icon and text*/
     -webkit-user-select: none; /* Safari */        
@@ -114,6 +115,15 @@ button::-moz-focus-inner {
     font-weight: 100;
     box-shadow: 0px 1px 5px #1a4586;
     transition: 80ms;
+}
+@media (max-width: 1200px) and (min-width: 861px) {
+    .cancel_ok_btns {
+        width: 75%;
+    }
+    .add_contact_input {
+        width: 84%;
+    }
+    
 }
 
 /*////////////////////// userList //////////*/

@@ -65,6 +65,8 @@ var get_time_str = (time) => {
     return date_str + ' > ' + time_str;
 }
 
+// html tags
+var container = document.getElementById('container');
 var search_icon = document.getElementById("search_icon");
 var users_toolbar = document.getElementById('users_toolbar');
 var user_list = document.getElementById('user_list');
@@ -150,6 +152,26 @@ var searchInput_onfocus = () => {
     }
 }
 
+////// window.innerWidth at resize event
+window.addEventListener('resize', window_resize);
+function window_resize(e) {
+    if (e.target.innerWidth > 860){
+
+        container.style.gtc = '30% 70%';
+        user_block.style.display = 'flex';
+        chat_room.style.display = 'grid';
+        back_to_list_btn.style.display = 'none';
+    }else {
+
+        container.style.gtc = '1fr';
+        user_block.style.display = 'flex';
+        chat_room.style.display = 'none';
+        back_to_list_btn.style.display = 'none';
+    }         
+}
+
+
+
 ////////////////////////////// add contact
 var contacts = [];
 var current_contact_index;
@@ -232,6 +254,15 @@ var sort_contacts_by_last_PM = () => {
         }
     }
 }
+var add_contact_cancel_btn_onclick = () => {
+
+    // cancel
+    add_contact_name_input.value = '';
+    add_contact_name_input.style.direction = 'ltr';
+    add_contact_panel.style.display = 'none';
+    users_toolbar.style.display = 'grid';
+}
+
 var contact_onclick = (contact_name) => {
     
     for (let i = 0; i < contacts.length; i++){
@@ -242,9 +273,22 @@ var contact_onclick = (contact_name) => {
             current_contact_index = i;
             contacts[i].load_messages();
 
+            // make sure the add contact panel is closed
+            if (add_contact_panel.style.display == 'grid'){
+                add_contact_cancel_btn_onclick();           
+            } 
+
+            // change the room
+            if (window.innerWidth <= 860)
+                if (chat_room.style.display == 'none' || chat_room.style.display == ''){
+
+                    chat_room.style.display = 'grid';
+                    user_block.style.display = 'none';
+                    back_to_list_btn.style.display = 'grid';
+                    //container.style.gridTemplateColumns = '1fr';
+                }
+
             break;
         }
     }
 }
-
-

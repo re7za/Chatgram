@@ -23,7 +23,7 @@
                 </div>
                 <form id="add_contact_panel" onsubmit="return false;">
                     <div class="cancel_ok_btns">
-                        <button class="user_cancel_btn" type="button">cancel</button>
+                        <button class="user_cancel_btn" type="button" onclick="add_contact_cancel_btn_onclick()">cancel</button>
                         <button id="add_contact_btn" type="button" onclick="add_contact_btn_onclick()">add</button>
                     </div>
                     <input type="text" id="add_contact_name_input" class="add_contact_input" autocomplete="off" value="" placeholder="name" onfocus="addContactInput_name_onfocus()">
@@ -31,7 +31,12 @@
                 <div id="user_list"></div>
             </div>
             <div id="chat_room">
-                <div id="chatroom_header"><div id="chatroom_header_text"></div></div>
+                <div id="chatroom_header">
+                    <div id="back_to_list_btn" onclick="back_to_list_btn_onclick()">
+                        <img id="back_to_list_icon" src="icon/back.png" alt="back">
+                    </div>
+                    <div id="chatroom_header_text">Chatgram</div>
+                </div>
                 <div id="text_area_container">
                     <div id="text_area"></div>
                 </div>

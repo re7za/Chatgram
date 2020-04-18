@@ -1,9 +1,8 @@
+
+var chat_room = document.getElementById('chat_room');
 var message_form = document.getElementById("message_form");
 var message_input = document.getElementById("message_input");
 var send_icon = document.getElementById('send_icon');
-var chatroom_trash_icon = document.getElementById('chatroom_trash_icon');
-var chatroom_trash_btn = document.getElementById('chatroom_trash');
-var chatroom_trash_btn_delete_text = document.getElementById('chatroom_trash_btn_delete_text');
 
 //////////// text area variables
 var text_area = document.getElementById('text_area');
@@ -103,5 +102,16 @@ var sendIcon_onclick = () => {
     }
 }
 
+/////////////////// back to contact list
+var back_to_list_btn_onclick = () => {
 
-// باید مخاطبی ک روش کلیک میشه اسمش رو اون بالا بنویسیم
+    if (window.innerWidth <= 860) {
+
+        message_input.value = '';
+        
+        chat_room.style.display = 'none';
+        user_block.style.display = 'flex';
+        back_to_list_btn.style.display = 'none';
+        //container.style.gridTemplateColumns = '1fr';
+    }
+}

@@ -9,7 +9,7 @@
     --white_blue: #dcf3ff;
     --graySearch: #555555;
     --grayUesrName: #333333;
-    --btn_hover: #f0f0f0;
+    --btn_hover: #ddd;
 }
 /*///////////// scrollbar //////////////*/
 /* width */
@@ -55,9 +55,9 @@ html, body {
     z-index: 0;
 }
 #chat_room {
-    background-color: var(--chatroom_blue);
+    background-image: url("/background_chatroom.png");
     display: grid;
-    grid-template-rows: 61px 1fr 90px;
+    grid-template-rows: 61px 1fr 95px;
     overflow: hidden;
     z-index: 0;
 }
@@ -65,8 +65,7 @@ html, body {
   #container {
     grid-template-columns: 1fr;
   }
-  #user_block {
+  #chat_room {
     display: none;
   }
 }
-

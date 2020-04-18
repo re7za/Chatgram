@@ -1,7 +1,7 @@
 /*///////////////////////////////// chat room /////////*/
 /*////////// message_board //////////*/
 #message_board {
-    padding: 12px 15px 25px 15px;
+    padding: 12px 12px 25px 15px;
     border-radius: 0px;
     /*disable the icon and text*/
     -webkit-user-select: none; /* Safari */        
@@ -93,9 +93,9 @@ textarea::-webkit-scrollbar {
 #chatroom_header {
     z-index: 1;
     background-color: var(--twitter_blue);
-    min-height: 61px;
     box-shadow: 0px 5px 10px var(--dark_blue);
-    
+    padding-left: 2%;
+    padding-right: 2%;
     display: grid;
     justify-items: center;
     align-items: center;
@@ -108,9 +108,37 @@ textarea::-webkit-scrollbar {
 }
 #chatroom_header_text {
     color: white;
+    font-weight: bolder;
+    font-style: italic;
     font-size: 25px;
     text-shadow: 0px 3px 5px #1a4586;
 }
+/*//// back_btn ////*/
+#back_to_list_btn {
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: 0px 1px 5px #1a4586;
+    display: none;
+    padding: 5px;
+    justify-content: center;
+    align-content: center;
+}
+#back_to_list_btn:hover {
+    background-color: var(--btn_hover);
+}
+@media (max-width: 861px){
+    #chatroom_header {
+        grid-template-columns: 50px 1fr;
+    }
+    #back_to_list_btn {
+        display: grid;
+    }
+    #chatroom_header_text {
+        justify-self: right;
+    }
+}
+
+
 /*////////////////////// مشکلات تخماتیک */
 /* اگه ی پیام بدون اسپیس طول زیادی داشته باشه عرض تصویر بیش از حد زیاد میشه
  دکمه اینتر نیولاین درست نمیکنه
