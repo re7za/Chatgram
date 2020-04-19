@@ -39,12 +39,14 @@
     font-weight: 100;
 }
 #search_bar img {
+	cursor:pointer;
     background-color: transparent;
     align-self: center;
     padding-left: 10px;
 }
 /*////////// add_contact ///*/
 #add_contact {
+	cursor:pointer;
     background-color: white;
     border-radius: 30px;
     box-shadow: 0px 1px 5px #1a4586;
@@ -87,6 +89,7 @@ button::-moz-focus-inner {
     grid-gap: 10px;
 }
 .cancel_ok_btns button{
+	cursor:pointer;
     background-color: white;
     border-radius: 40px;
     border: none;

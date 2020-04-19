@@ -23,6 +23,11 @@ var messageInput_onfocus = () => {
             // show the send_icon
             activeTheSendIcon();
 
+            let text = e.target.value;
+            if (text[text.length - 1] == '\n'){
+                sendIcon_onclick();
+            }           
+
             // 'rtl' or 'ltr'.. checking the first letter
             val = e.target.value;
             if (isRTL(val[0])){
@@ -61,21 +66,6 @@ function isRTL(s){
 
 ///////////// sending and receiving messages
 
-var addMessageToChatroom = (sender, text, time) => {
-
-    // create the message div
-    let message = `<div class="message ${sender}">`;
-    message += `<div class="message_text">${text}</div>`;
-    message += `<div class="message_time">${get_time_str(time)}</div>`;
-    message += `</div>`;
-
-    // add it to chatroom by DOM
-    text_area.innerHTML += message;
-
-    // set the default position of scroll bar to bottom of text_area div
-    text_area.scrollTop = text_area.scrollHeight;
-}
-
 // i'm sending message
 var sendIcon_onclick = () => {
 
@@ -101,6 +91,21 @@ var sendIcon_onclick = () => {
         deActiveTheSendIcon();
     }
 }
+var addMessageToChatroom = (sender, text, time) => {
+
+    // create the message div
+    let message = `<div class="message ${sender}">`;
+    message += `<div class="message_text">${text}</div>`;
+    message += `<div class="message_time">${get_time_str(time)}</div>`;
+    message += `</div>`;
+
+    // add it to chatroom by DOM
+    text_area.innerHTML += message;
+
+    // set the default position of scroll bar to bottom of text_area div
+    text_area.scrollTop = text_area.scrollHeight;
+}
+
 
 /////////////////// back to contact list
 var back_to_list_btn_onclick = () => {
