@@ -154,16 +154,24 @@ var searchInput_onfocus = () => {
 
 ////// window.innerWidth at resize event
 window.addEventListener('resize', window_resize);
+var mobile_mode;
+if (window.innerWidth > 860){
+    mobile_mode = false;
+}else {
+    mobile_mode = true;
+}
 function window_resize(e) {
-    if (e.target.innerWidth > 860){
+    if (e.target.innerWidth > 860 && mobile_mode == true){
 
-        container.style.gtc = '30% 70%';
+        mobile_mode = false;
+        container.style.gridTemplateColumns = '30% 70%';
         user_block.style.display = 'flex';
         chat_room.style.display = 'grid';
         back_to_list_btn.style.display = 'none';
-    }else {
+    }else if (e.target.innerWidth <= 860 && mobile_mode == false){
 
-        container.style.gtc = '1fr';
+        mobile_mode = true;
+        container.style.gridTemplateColumns = '1fr';
         user_block.style.display = 'flex';
         chat_room.style.display = 'none';
         back_to_list_btn.style.display = 'none';
