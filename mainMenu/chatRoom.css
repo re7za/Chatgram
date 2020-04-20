@@ -1,8 +1,7 @@
 /*///////////////////////////////// chat room /////////*/
-
 /*////////// message_board //////////*/
 #message_board {
-    padding: 12px 12px 25px 15px;
+    padding: 15px;
     border-radius: 0px;
     /*disable the icon and text*/
     -webkit-user-select: none; /* Safari */        
@@ -78,7 +77,7 @@ textarea::-webkit-scrollbar {
 .message_time {
     margin-bottom: 5px;
     font-size: 11px;
-    font-weight: 100;
+    font-weight: 200;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     align-self: flex-end;
 }
@@ -114,6 +113,7 @@ textarea::-webkit-scrollbar {
     font-style: italic;
     font-size: 25px;
     text-shadow: 0px 3px 5px #1a4586;
+    margin-right: 0px;
 }
 /*//// back_btn ////*/
 #back_to_list_btn {
@@ -129,7 +129,30 @@ textarea::-webkit-scrollbar {
 #back_to_list_btn:hover {
     background-color: var(--btn_hover);
 }
-@media (max-width: 861px){
+
+/*mobile size*/
+@media (max-width: 860px){
+    #message_board {
+        padding: 5px 15px 5px 15px;
+    }
+    /*messages*/
+    .message {
+        font-size: 15px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+    .me {
+        padding: 10px;
+        padding-bottom: 4px;
+    }
+    .she {
+        padding: 10px;
+    }
+    .message_time {
+        padding: 0px;
+        margin: 0px;
+    }
+
     #chatroom_header {
         grid-template-columns: 50px 1fr;
     }
@@ -137,6 +160,7 @@ textarea::-webkit-scrollbar {
         display: grid;
     }
     #chatroom_header_text {
+        margin-right: 10px;
         justify-self: right;
     }
 }

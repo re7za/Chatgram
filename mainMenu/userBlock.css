@@ -36,7 +36,7 @@
     align-items: stretch;
     font-size: 18px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-weight: 100;
+    font-weight: 300;
 }
 #search_bar img {
 	cursor:pointer;
@@ -115,7 +115,7 @@ button::-moz-focus-inner {
     align-items: stretch;
     font-size: 18px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-weight: 100;
+    font-weight: 300;
     box-shadow: 0px 1px 5px #1a4586;
     transition: 80ms;
 }
@@ -162,4 +162,12 @@ button::-moz-focus-inner {
     font-size: 12px;
     font-weight: 100;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/*mobile size*/
+@media (max-width: 861px){
+
+    #add_contact_btn {
+        background-color: #4f4;
+    }
 }

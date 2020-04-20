@@ -65,6 +65,7 @@ html, body {
     grid-template-columns: 1fr;
   }
   #chat_room {
+    grid-template-rows: 61px 1fr 75px;
     display: none;
   }
 }
