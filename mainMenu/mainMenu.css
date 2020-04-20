@@ -34,7 +34,6 @@
   }
 /*///////////////////////////////// main menu /////////*/
 html, body {
-    background-image: url("../background.png");
     height: 98%;
 }
 #main_menu {
@@ -55,7 +54,7 @@ html, body {
     z-index: 0;
 }
 #chat_room {
-    background-image: url("/background_chatroom.png");
+    background-image: url("../background_chatroom.png");
     display: grid;
     grid-template-rows: 61px 1fr 95px;
     overflow: hidden;

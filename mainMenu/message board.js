@@ -26,6 +26,7 @@ var messageInput_onfocus = () => {
             let text = e.target.value;
             if (text[text.length - 1] == '\n'){
                 sendIcon_onclick();
+                return;
             }           
 
             // 'rtl' or 'ltr'.. checking the first letter
