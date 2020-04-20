@@ -281,10 +281,13 @@ var contact_onclick = (contact_name) => {
             current_contact_index = i;
             contacts[i].load_messages();
 
-            // make sure the add contact panel is closed
+            // make sure the add contact panel and search input are closed
             if (add_contact_panel.style.display == 'grid'){
                 add_contact_cancel_btn_onclick();           
-            } 
+            }
+            if (search_input.value != ''){
+                searchIcon_onclick();
+            }
 
             // change the room
             if (window.innerWidth <= 860)

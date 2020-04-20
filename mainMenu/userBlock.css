@@ -170,4 +170,7 @@ button::-moz-focus-inner {
     #add_contact_btn {
         background-color: #4f4;
     }
+    #add_contact_btn:hover {
+        background-color: #2d2;
+    }
 }
